@@ -1,0 +1,244 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #e3f2fd, #f8f9fa);
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 450px;
+    margin: 60px auto;
+    background: #fff;
+    padding: 30px 25px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+/* Headings */
+h1, h2 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+/* Paragraphs */
+p {
+    margin-bottom: 20px;
+    color: #555;
+    font-size: 15px;
+}
+
+/* Forms */
+.form-container {
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #34495e;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+input:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+/* Buttons */
+button, .submit-btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: #3498db;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+button:hover, .submit-btn:hover {
+    background: #2980b9;
+    transform: scale(1.02);
+}
+
+/* Home Page Styling */
+.home-container {
+    text-align: center;
+    margin-top: 50px;
+    padding: 20px;
+}
+
+.subtitle {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.role-selection {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.role-card {
+    background: #ffffff;
+    padding: 25px 20px;
+    border-radius: 12px;
+    width: 220px;
+    text-decoration: none;
+    color: #2c3e50;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.role-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.role-card .icon {
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+
+.role-card h3 {
+    margin-bottom: 8px;
+    color: #3498db;
+}
+
+.role-card p {
+    font-size: 14px;
+    color: #666;
+}
+
+/* ✅ Responsive Design */
+@media (max-width: 768px) {
+    .home-container h1 {
+        font-size: 24px;
+    }
+
+    .subtitle {
+        font-size: 14px;
+    }
+
+    .role-selection {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .role-card {
+        width: 90%;
+        max-width: 300px;
+    }
+
+    .role-card .icon {
+        font-size: 40px;
+    }
+}
+
+/* Form Container */
+.form-container {
+    max-width: 400px;
+    margin: 60px auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.form-container h2 {
+    margin-bottom: 8px;
+    font-size: 26px;
+    color: #2c3e50;
+}
+
+.form-subtitle {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 25px;
+}
+
+.form-box {
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #34495e;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 6px rgba(52, 152, 219, 0.3);
+    outline: none;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 12px;
+    background: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.submit-btn:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+}
+
+.redirect-text {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #555;
+}
+
+.redirect-text a {
+    color: #3498db;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.redirect-text a:hover {
+    color: #2980b9;
+}
