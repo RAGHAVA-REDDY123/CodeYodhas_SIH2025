@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Attendance</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f5f6fa; text-align: center; padding: 30px; }
+        .attendance-container { background: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 6px 15px rgba(0,0,0,0.1); display: inline-block; }
+        h2 { color: #2c3e50; margin-bottom: 20px; }
+        ul { list-style: none; padding: 0; }
+        li { background: #3498db; color: white; margin: 8px 0; padding: 10px; border-radius: 6px; }
+        a { display: inline-block; margin-top: 15px; color: #3498db; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="attendance-container">
+        <h2>Your Attendance</h2>
+        {% if attendance %}
+            <ul>
+                {% for session in attendance %}
+                    <li>Session: {{ session }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No attendance recorded yet.</p>
+        {% endif %}
+        <a href="/student/dashboard/{{ student_id }}">Back to Dashboard</a>
+    </div>
+</body>
+</html>

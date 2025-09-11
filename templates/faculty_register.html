@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="form-container">
+    <h2>👩‍🏫 Faculty Registration</h2>
+    <p class="form-subtitle">Create your faculty account</p>
+
+    <form action="/faculty/register" method="post" class="form-box">
+        <div class="form-group">
+            <label>Faculty ID</label>
+            <input type="text" name="faculty_id" placeholder="Enter your faculty ID" required>
+        </div>
+        <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" name="name" placeholder="Enter your full name" required>
+        </div>
+        <div class="form-group">
+            <label>Username</label>
+            <input type="text" name="username" placeholder="Choose a username" required>
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" name="password" placeholder="Choose a strong password" required>
+        </div>
+        <button type="submit" class="submit-btn">Register</button>
+    </form>
+
+    <p class="redirect-text">
+        Already have an account? 
+        <a href="/faculty/login">Login here</a>
+    </p>
+</div>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="home-container">
+    <h1>Welcome to Attendance Management System</h1>
+    <p class="subtitle">Please select your role to continue</p>
+
+    <div class="role-selection">
+        <a href="/student/login" class="role-card">
+            <div class="icon">👨‍🎓</div>
+            <h3>Student</h3>
+            <p>Login or Register as a Student</p>
+        </a>
+        <a href="/faculty/login" class="role-card">
+            <div class="icon">👩‍🏫</div>
+            <h3>Faculty</h3>
+            <p>Login or Register as Faculty</p>
+        </a>
+    </div>
+</div>
+{% endblock %}
