@@ -1,70 +1,90 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Faculty Dashboard</title>
-    <style>
-        body {
-            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-            background: #f5f6fa;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-        .dashboard-container {
-            text-align: center;
-            background: #fff;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0px 6px 18px rgba(0,0,0,0.1);
-            width: 400px;
-        }
-        h2 {
-            color: #2c3e50;
-            margin-bottom: 20px;
-            font-size: 1.6rem;
-        }
-        .dashboard {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        .btn {
-            display: block;
-            padding: 12px;
-            background: #3498db;
-            color: white;
-            text-decoration: none;
-            border-radius: 6px;
-            font-size: 16px;
-            font-weight: 500;
-            transition: all 0.3s ease-in-out;
-        }
-        .btn:hover {
-            background: #2980b9;
-            transform: scale(1.03);
-        }
-        .logout-btn {
-            background: #e74c3c;
-        }
-        .logout-btn:hover {
-            background: #c0392b;
-        }
-    </style>
-</head>
-<body>
-    <div class="dashboard-container">
-        <h2>Welcome, {{ faculty.name }} <br><small>({{ faculty.department }})</small></h2>
+{% extends "base.html" %}
 
-        <div class="dashboard">
-            <a href="/faculty/students/{{ faculty.id }}" class="btn">👨‍🎓 View Students</a>
-            <a href="/faculty/generate_qr?faculty_id={{ faculty.id }}" class="btn">🔗 Generate QR</a>
-            <a href="/faculty/attendance/{{ faculty.id }}" class="btn">📝 Mark/View Attendance</a>
-            <a href="/faculty/logout" class="btn" style="background-color: #e74c3c;">Logout</a>
-        </div>
+{% block content %}
+<div class="dashboard-container">
+    <h2>👩‍🏫 Welcome, {{ faculty.name }}</h2>
+    <p>Your Faculty ID: {{ faculty.faculty_id }}</p>
+    <p>Department: {{ faculty.department }}</p>
+
+    <div class="dashboard-actions">
+        <a href="/faculty/students" class="action-btn">View Students</a>
+        <a href="/faculty/generate_qr?faculty_id={{ faculty.id }}" class="action-btn">Generate QR</a>
+        <a href="/faculty/logout" class="action-btn logout-btn">Logout</a>
     </div>
-</body>
-</html>
+
+
+    <!-- ✅ Session Management -->
+    {% if active_session %}
+      <div class="active-session" style="margin:12px 0;padding:12px;background:#fff3cd;border-radius:8px;">
+        <strong>Active session:</strong> {{ active_session.subject }} — code:
+        <span style="font-family:monospace;padding:4px 8px;background:#fff;border-radius:4px;">
+            {{ active_session.code }}
+        </span>
+        <form method="post" action="/faculty/end_session" style="display:inline;">
+          <input type="hidden" name="faculty_id" value="{{ faculty.id }}">
+          <button type="submit" class="submit-btn" style="margin-left:8px;">End Session</button>
+        </form>
+      </div>
+    {% else %}
+      <form method="post" action="/faculty/start_session" style="margin-top:20px;">
+        <input type="hidden" name="faculty_id" value="{{ faculty.id }}">
+        <input type="text" name="subject" placeholder="Enter subject name" required
+               style="padding:8px;border-radius:6px;border:1px solid #ccc;margin-right:8px;">
+        <button type="submit" class="submit-btn">Start Session</button>
+      </form>
+    {% endif %}
+</div>
+
+<style>
+.dashboard-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 25px;
+    background: #f8f9fa;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.dashboard-actions {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.action-btn {
+    padding: 10px 20px;
+    background: #4a90e2;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.action-btn:hover {
+    background: #357ABD;
+}
+
+.logout-btn {
+    background: #e74c3c;
+}
+
+.logout-btn:hover {
+    background: #c0392b;
+}
+
+.submit-btn {
+    padding: 8px 16px;
+    background: #2ecc71;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background: #27ae60;
+}
+</style>
+{% endblock %}
